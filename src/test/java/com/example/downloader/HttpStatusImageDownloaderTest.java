@@ -1,3 +1,7 @@
+package com.example.downloader;
+
+import com.example.checker.HttpStatusChecker;
+import com.example.downloader.HttpStatusImageDownloader;
 import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,7 +11,7 @@ public class HttpStatusImageDownloaderTest {
 
     @Test
     void testDownloadStatusImage_Success() throws IOException {
-        // Створення фейкового об'єкту HttpStatusChecker
+        // Створення фейкового об'єкту com.example.checker.HttpStatusChecker
         HttpStatusChecker fakeChecker = new HttpStatusChecker() {
             @Override
             public String getStatusImage(int code) {
@@ -15,7 +19,7 @@ public class HttpStatusImageDownloaderTest {
             }
         };
 
-        // Створення об'єкту HttpStatusImageDownloader з фейковим HttpStatusChecker
+        // Створення об'єкту com.example.downloader.HttpStatusImageDownloader з фейковим com.example.checker.HttpStatusChecker
         HttpStatusImageDownloader downloader = new HttpStatusImageDownloader(fakeChecker);
 
         // Перевірка, що метод завантаження працює успішно для коду статусу 200
@@ -25,7 +29,7 @@ public class HttpStatusImageDownloaderTest {
 
     @Test
     void testDownloadStatusImage_Failure() {
-        // Створення фейкового об'єкту HttpStatusChecker
+        // Створення фейкового об'єкту com.example.checker.HttpStatusChecker
         HttpStatusChecker fakeChecker = new HttpStatusChecker() {
             @Override
             public String getStatusImage(int code) {
@@ -33,7 +37,7 @@ public class HttpStatusImageDownloaderTest {
             }
         };
 
-        // Створення об'єкту HttpStatusImageDownloader з фейковим HttpStatusChecker
+        // Створення об'єкту com.example.downloader.HttpStatusImageDownloader з фейковим com.example.checker.HttpStatusChecker
         HttpStatusImageDownloader downloader = new HttpStatusImageDownloader(fakeChecker);
 
         // Перевірка, що метод генерує FileNotFoundException для коду статусу 404

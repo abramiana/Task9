@@ -1,3 +1,6 @@
+package com.example.checker;
+
+import com.example.checker.HttpStatusChecker;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,3 +1,7 @@
+package com.example.cli;
+
+import com.example.checker.HttpStatusChecker;
+import com.example.downloader.HttpStatusImageDownloader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -5,28 +9,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * Клас HttpImageStatusCli представляє інтерфейс командного рядка для взаємодії з програмою для завантаження зображень HTTP статусів.
- */
-public class HttpImageStatusCli {
+public class HttpImageStatusCli implements HttpImageStatusClient {
     private final HttpStatusChecker checker;
     private final HttpStatusImageDownloader downloader;
     private static final Logger logger = LogManager.getLogger(HttpImageStatusCli.class);
 
-    /**
-     * Конструктор класу HttpImageStatusCli.
-     *
-     * @param checker    об'єкт HttpStatusChecker для перевірки наявності зображення для HTTP статусу
-     * @param downloader об'єкт HttpStatusImageDownloader для завантаження зображення за HTTP статусом
-     */
     public HttpImageStatusCli(HttpStatusChecker checker, HttpStatusImageDownloader downloader) {
         this.checker = checker;
         this.downloader = downloader;
     }
 
-    /**
-     * Метод для взаємодії з користувачем через командний рядок.
-     */
+    @Override
     public void askStatus() {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             logger.info("Enter HTTP status code:");

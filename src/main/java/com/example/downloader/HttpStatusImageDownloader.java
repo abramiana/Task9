@@ -1,12 +1,12 @@
+package com.example.downloader;
+
+import com.example.checker.HttpStatusChecker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 
-/**
- * Клас HttpStatusImageDownloader призначений для завантаження зображень HTTP статусів.
- */
-public class HttpStatusImageDownloader {
+public class HttpStatusImageDownloader implements ImageDownloader {
     private static final Logger logger = LogManager.getLogger(HttpStatusImageDownloader.class);
     private final HttpStatusChecker checker;
 
@@ -14,12 +14,7 @@ public class HttpStatusImageDownloader {
         this.checker = checker;
     }
 
-    /**
-     * Метод для завантаження зображення з вказаним кодом статусу.
-     *
-     * @param code код статусу зображення, яке потрібно завантажити
-     * @throws IOException якщо виникла помилка під час завантаження зображення
-     */
+    @Override
     public void downloadStatusImage(int code) throws IOException {
         String imageUrl = checker.getStatusImage(code);
         if (imageUrl != null && !imageUrl.isEmpty()) {

@@ -1,3 +1,8 @@
+package com.example.cli;
+
+import com.example.checker.HttpStatusChecker;
+import com.example.cli.HttpImageStatusCli;
+import com.example.downloader.HttpStatusImageDownloader;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
