@@ -5,16 +5,18 @@ import java.io.IOException;
 
 public class HttpStatusCheckerTest {
 
+
     @Test
-    void testGetStatusImage_Success() {
+    void testGetStatusImage_Success() throws IOException {
+        // Arrange
         HttpStatusChecker checker = new HttpStatusChecker();
-        try {
-            String imageUrl = checker.getStatusImage(200);
-            assertNotNull(imageUrl);
-            assertTrue(imageUrl.startsWith("https://http.cat/"));
-        } catch (IOException e) {
-            fail("An unexpected IOException occurred: " + e.getMessage());
-        }
+
+        // Act
+        String imageUrl = checker.getStatusImage(200);
+
+        // Assert
+        assertNotNull(imageUrl);
+        assertTrue(imageUrl.startsWith("https://http.cat/"));
     }
 
     @Test

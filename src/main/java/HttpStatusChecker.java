@@ -6,6 +6,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
+/**
+ * Клас HttpStatusChecker відповідає за перевірку статусів HTTP-відповідей та отримання URL зображень,
+ * пов'язаних із цими статусами.
+ */
 public class HttpStatusChecker {
     private final OkHttpClient client;
     private static final Logger logger = LogManager.getLogger(HttpStatusChecker.class);

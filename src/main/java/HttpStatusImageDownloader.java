@@ -3,6 +3,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 
+/**
+ * Клас HttpStatusImageDownloader призначений для завантаження зображень HTTP статусів.
+ */
 public class HttpStatusImageDownloader {
     private static final Logger logger = LogManager.getLogger(HttpStatusImageDownloader.class);
     private final HttpStatusChecker checker;
